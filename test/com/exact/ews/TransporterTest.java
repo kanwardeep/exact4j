@@ -92,7 +92,7 @@ public class TransporterTest extends TestCase {
       final Transporter t = new Transporter(TestUtils.URL, null);
       t.setConnectionVerifier(new ConnectionVerifier());
 
-      final Request request = getFindRequest(9000);
+      final Request request = getFindRequest("9000");
       final Response r = t.submit(request);
 
       assertTrue(r.isTransactionError());
@@ -217,9 +217,9 @@ public class TransporterTest extends TestCase {
     return request;
   }
 
-  protected Request getFindRequest(final long createdTag) {
-    if(createdTag == 0)
-      throw new IllegalArgumentException("getFindRequest(): createdTag cannot be 0");
+  protected Request getFindRequest(final String createdTag) {
+    if(createdTag == null)
+      throw new IllegalArgumentException("getFindRequest(): createdTag cannot be null");
 
     final Request request = new Request(TransactionType.TransactionDetails);
     request.setTransactionTag(createdTag);

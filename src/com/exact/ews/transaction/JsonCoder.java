@@ -40,9 +40,7 @@ class JsonCoder implements Coder {
       json.put("password", r.getPassword());
       json.put("transaction_type", r.getTransactionType().getCode());
       json.put("cc_number", r.getCardNumber());
-      if(r.getTransactionTag() != 0) {
-        json.put("transaction_tag", r.getTransactionTag());
-      }
+      json.put("transaction_tag", r.getTransactionTag());
       json.put("track1", r.getTrack1());
       json.put("track2", r.getTrack2());
       json.put("pan", r.getPrimaryAccountNumber());
@@ -148,7 +146,7 @@ class JsonCoder implements Coder {
     if(!cc_number.equals("null"))
       r.setCardNumber(cc_number);
 
-    r.setTransactionTag(json.optLong("transaction_tag"));
+    r.setTransactionTag(json.optString("transaction_tag"));
     r.setTrack1(json.optString("track1"));
     r.setTrack2(json.optString("track2"));
     r.setPrimaryAccountNumber(json.optString("pan"));

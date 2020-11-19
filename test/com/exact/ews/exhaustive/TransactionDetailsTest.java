@@ -34,7 +34,7 @@ public class TransactionDetailsTest extends BaseTestCase
     assertFalse(request.isValid());
 
     assertTrue(request.getErrors().contains("Transaction Tag must be greater than 0."));
-    request.setTransactionTag(1234);
+    request.setTransactionTag("1234");
     assertTrue(request.isValid());
   }
 

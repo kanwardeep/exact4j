@@ -51,8 +51,8 @@ class Validator
     // check for other mandatory fields based on the way in which the card number is supplied
     if (r.getTransactionType() == TransactionType.TransactionDetails) {
       // transaction_tag & auth_num mandatory
-      if(r.getTransactionTag() < 1) {
-        errors.add("Transaction Tag must be greater than 0.");
+      if(r.getTransactionTag() != null) {
+        errors.add("Transaction Tag must not be empty.");
       }
     }
     else if (r.getTransactionType() == TransactionType.ReferencedVoid) {
@@ -61,7 +61,7 @@ class Validator
     else if (isIDebit(r.getTransactionType())) {
       validateForPan(r, errors);
     }
-    else if (r.getTransactionTag() != 0) {
+    else if (r.getTransactionTag() != null) {
       validateForTransactionTag(r, errors);
     }
     else if (! isBlank(r.getCardNumber())) {
@@ -153,7 +153,7 @@ class Validator
     if(r.getAmount() <= 0) {
       errors.add("Amount is required.");
     }
-    if(r.getTransactionTag() <= 0) {
+    if(r.getTransactionTag() != null) {
       errors.add("Invalid Transaction Tag supplied.");
     }
     if(!(isBlank(r.getCardNumber()) &&
@@ -273,7 +273,7 @@ class Validator
       errors.add("Amount is required.");
     }
 
-    if(r.getTransactionTag() != 0) {
+    if(r.getTransactionTag() != null) {
       errors.add("Do not set a transaction tag for referenced void requests.");
     }
 

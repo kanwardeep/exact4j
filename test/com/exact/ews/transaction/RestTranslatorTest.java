@@ -98,7 +98,7 @@ public class RestTranslatorTest extends TestCase
     r.setTax2Number("321");
     r.setTrack1(TestUtils.Track1);
     r.setTrack2(TestUtils.Track2);
-    r.setTransactionTag(5678);
+    r.setTransactionTag("5678");
     r.setUserName("user name");
     r.setXid("x678");
     r.setZipCode("10010");
@@ -196,7 +196,7 @@ public class RestTranslatorTest extends TestCase
 			assertNotNull(req);
 
 			assertEquals("Simon Brown", req.getCardholderName());
-			assertEquals(2516, req.getTransactionTag());
+			assertEquals("2516", req.getTransactionTag());
 		}
 		catch (Exception e)
 		{
@@ -234,7 +234,7 @@ public class RestTranslatorTest extends TestCase
       assertEquals("Simon Brown Is Not A Really Long Name But This Is", req.getCardholderName());
       assertEquals("nonsense", req.getCardNumber());
       assertEquals("This Is A Really LONG Customer Reference", req.getCustomerRef());
-      assertEquals(2516, req.getTransactionTag());
+      assertEquals("2516", req.getTransactionTag());
     }
     catch (Exception e)
     {
@@ -309,7 +309,7 @@ public class RestTranslatorTest extends TestCase
       assertEquals("123456", req.getTax2Number());
       assertEquals(TestUtils.Track1, req.getTrack1());
       assertEquals(TestUtils.Track2, req.getTrack2());
-      assertEquals(2516, req.getTransactionTag());
+      assertEquals("2516", req.getTransactionTag());
       assertEquals(TransactionType.Purchase, req.getTransactionType());
       assertEquals("Superman", req.getUserName());
       assertEquals("verified", req.getCardVerificationStr1());

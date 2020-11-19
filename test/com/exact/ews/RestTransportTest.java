@@ -85,7 +85,7 @@ public class RestTransportTest extends TransporterTest
       final Transporter t = new Transporter(TestUtils.URL, Encoding.REST);
       t.setConnectionVerifier(new ConnectionVerifier());
 
-      final Request request = getFindRequest(9000);
+      final Request request = getFindRequest("9000");
       final Response r = t.submit(request);
 
       assertTrue(r.isTransactionError());
