@@ -51,8 +51,8 @@ class Validator
     // check for other mandatory fields based on the way in which the card number is supplied
     if (r.getTransactionType() == TransactionType.TransactionDetails) {
       // transaction_tag & auth_num mandatory
-      if(r.getTransactionTag() != null) {
-        errors.add("Transaction Tag must not be empty.");
+      if(r.getTransactionTag() == null) {
+        errors.add("Transaction Tag must not be null.");
       }
     }
     else if (r.getTransactionType() == TransactionType.ReferencedVoid) {
@@ -153,7 +153,7 @@ class Validator
     if(r.getAmount() <= 0) {
       errors.add("Amount is required.");
     }
-    if(r.getTransactionTag() != null) {
+    if(r.getTransactionTag() == null) {
       errors.add("Invalid Transaction Tag supplied.");
     }
     if(!(isBlank(r.getCardNumber()) &&
