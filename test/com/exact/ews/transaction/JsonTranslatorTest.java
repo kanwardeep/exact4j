@@ -87,7 +87,7 @@ public class JsonTranslatorTest extends TestCase {
     r.setTax2Number("321");
     r.setTrack1(TestUtils.Track1);
     r.setTrack2(TestUtils.Track2);
-    r.setTransactionTag(5678);
+    r.setTransactionTag("5678");
     r.setUserName("user name");
     r.setXid("x678");
     r.setZipCode("10010");
@@ -179,7 +179,7 @@ public class JsonTranslatorTest extends TestCase {
       assertNotNull(req);
 
       assertEquals("Simon Brown", req.getCardholderName());
-      assertEquals(2160, req.getTransactionTag());
+      assertEquals("2160", req.getTransactionTag());
     } catch (Exception e) {
       e.printStackTrace();
       fail("Unexpected exception");

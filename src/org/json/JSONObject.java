@@ -963,7 +963,7 @@ public class JSONObject
 	 * @return this.
 	 * @throws JSONException If the key is null.
 	 */
-	public JSONObject put(String key, long value) throws JSONException
+	public JSONObject put(String key, String value) throws JSONException
 	{
 		put(key, new Long(value));
 		return this;

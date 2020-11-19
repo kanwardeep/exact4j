@@ -36,7 +36,7 @@ public class TaggedVoidTest extends BaseTestCase
     assertFalse(request.isValid());
 
     assertTrue(request.getErrors().contains("One of the following must be supplied: Card Number, Track1, Track2 or TransactionTag."));
-    request.setTransactionTag(1234);
+    request.setTransactionTag("1234");
     assertFalse(request.isValid());
 
     assertTrue(request.getErrors().contains("Amount is required."));
