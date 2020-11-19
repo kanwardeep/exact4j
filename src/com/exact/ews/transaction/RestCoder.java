@@ -85,7 +85,7 @@ class RestCoder implements Coder {
     }
 
     appendElement(document, transactionRoot, "Authorization_Num", r.getAuthorizationNum());
-    appendElement(document, transactionRoot, "Transaction_Tag", ((Long)r.getTransactionTag()).toString());
+    appendElement(document, transactionRoot, "Transaction_Tag", r.getTransactionTag());
     appendElement(document, transactionRoot, "Reference_No", r.getReferenceNo());
     appendElement(document, transactionRoot, "Customer_Ref", r.getCustomerRef());
     appendElement(document, transactionRoot, "Reference_3", r.getReference3());
@@ -260,9 +260,7 @@ class RestCoder implements Coder {
     r.setTrack1(getElementValue(root, "Track1"));
     r.setTrack2(getElementValue(root, "Track2"));
 
-    value = getElementValue(root, "Transaction_Tag");
-    if(!value.equals(""))
-      r.setTransactionTag(Long.parseLong(value));
+    r.setTransactionTag(getElementValue(root, "Transaction_Tag"));
 
     r.setUserName(getElementValue(root, "User_Name"));
     r.setCardVerificationStr1(getElementValue(root, "VerificationStr1"));

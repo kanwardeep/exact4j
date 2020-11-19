@@ -56,10 +56,10 @@ public class ReferencedVoidTest extends BaseTestCase
     assertTrue(request.isValid());
 
     // ensure we don't set a transaction tag
-    request.setTransactionTag(400);
+    request.setTransactionTag("400");
     assertFalse(request.isValid());
     assertTrue(request.getErrors().contains("Do not set a transaction tag for referenced void requests."));
-    request.setTransactionTag(0);
+    request.setTransactionTag(null);
 
     // ensure we don't set any card information
     request.setCardNumber("4111111111111111");

@@ -176,7 +176,7 @@ public class ReadOnlyRequest extends Request
     this.zipCode = zipCode;
   }
 
-  public void setTransactionTag(final long transactionTag)
+  public void setTransactionTag(final String transactionTag)
   {
     this.transactionTag = transactionTag;
   }
